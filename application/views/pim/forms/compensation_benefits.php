@@ -186,5 +186,8 @@
             </div>
         </div>      
 </fieldset>
-
+<div class="widget">
+    <div class="formSubmit"><input type="reset" value="Reset" class="redB"> <input type="submit" value="submit" class="blueB"></div>
+    <div class="clear"></div>
+</div>
 <?php echo form_close();?>

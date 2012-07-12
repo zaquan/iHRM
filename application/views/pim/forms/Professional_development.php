@@ -66,27 +66,48 @@
                 </div>  
                 <div id="unmask"></div>
             </fieldset>
+            <div class="widget">
+               <div class="formSubmit"><input type="reset" value="Reset" class="redB"> <input type="submit" value="submit" class="blueB"></div>
+               <div class="clear"></div>
+            </div>
         <?php echo form_close(); ?>
 
         <script type="text/javascript">
         $(document).ready(function(){
-            
+            var awardRow = $('#award tbody').html(),
+                awardRowCount = $('a.delete_row').length,
+                awardCurrentCount = awardRowCount;
+
             $("table").delegate("a.delete_row", "click", function() {
-                $(this).parent().parent().remove();
+                if(awardCurrentCount > awardRowCount){
+                    $(this).parent().parent().remove();
+                    awardCurrentCount--;
+                }
+                return false;
             });
             $('a.add_row').click(function(){
-               var row = '<tr><td><a href="#1" class="delete_row"><img src="<?php echo site_url('assets/images'); ?>/icons/remove.png" alt="" /></a></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%'), set_value('education[1][school]')); ?></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%'), set_value('education[1][school]')); ?></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%')); ?></td></tr>'; 
-               $('#award tbody').append(row);
-               
+               $('#award tbody').append(awardRow);
+               awardCurrentCount++;
                return false;
             });
             
+            var trainingRow = $('#training tbody').html(),
+                trainingRowCount = $('a.delete_row_training').length,
+                trainingCurrentCount = trainingRowCount;
+            
             $("table").delegate("a.delete_row_training", "click", function() {
-                $(this).parent().parent().remove();
+                if(trainingCurrentCount > trainingRowCount){
+                    $(this).parent().parent().remove();
+                    trainingCurrentCount--;
+                }
+                return false;
             });
-            $('a.add_row_training').click(function(){
-               var row = '<tr><td><a href="#1" class="delete_row_training"><img src="<?php echo site_url('assets/images'); ?>/icons/remove.png" alt="" /></a></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%'), set_value('education[1][school]')); ?></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%'), set_value('education[1][school]')); ?></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%')); ?></td><td><?php echo form_input(array('name'=>'education[][school]','style'=>'width:96%')); ?></td></tr>'; 
-               $('#training tbody').append(row);
+            $(".widget").delegate('a.add_row_training','click',function(){
+                $('#training tbody').append(trainingRow);
+               $('select').not('#uniform-undefined select').uniform();
+               console.log($.uniform.elements);
+               
+               trainingCurrentCount++;
                
                return false;
             });
