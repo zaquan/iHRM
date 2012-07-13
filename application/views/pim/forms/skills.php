@@ -65,6 +65,7 @@
                 langRow++;
                
                $('#language tbody').append(row);
+               $('select').not('.selector select').uniform();
                
                return false;
             });

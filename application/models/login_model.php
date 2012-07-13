@@ -11,7 +11,7 @@ class Login_model extends CI_Model {
 	function validate_user($data){
             $where = $data;
             
-            $this->db->select('user_id,username,email,last_login,last_update')->from('users')->where($where);
+            $this->db->select('user_id,username,email,role,last_login,last_update')->from('users')->where($where);
             
             $query = $this->db->get();
             

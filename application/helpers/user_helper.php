@@ -19,4 +19,17 @@ if(!function_exists('user_logged_in')){
             return FALSE;
     }
 }
+
+if(!function_exists('is_admin')){
+    function is_admin(){
+        $ci = & get_instance();
+        
+        $user = $ci->session->userdata('user');
+        
+        if($user->role == 'admin')
+            return TRUE;
+        else
+            return FALSE;
+    }
+}
 ?>

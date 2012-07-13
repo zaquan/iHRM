@@ -5,12 +5,11 @@
  */
     
     $user = $this->session->userdata('user');
-    
 ?>
 <!-- Top fixed navigation -->
 <div class="topNav">
     <div class="wrapper">
-        <div class="welcome"><a href="#" title=""><img src="<?php echo site_url('assets/images'); ?>/userPic.png" alt="" /></a><span>Welcome, <?php echo $user->username; ?>!</span></div>
+        <div class="welcome"><a href="#" title=""><img src="<?php echo site_url('assets/images'); ?>/userPic.png" alt="" /></a><span>Welcome, <?php echo ucfirst($user->username); ?>!</span></div>
         <div class="userNav">
             <ul>
                 <li><a href="#" title=""><img src="<?php echo site_url('assets/images'); ?>/icons/topnav/profile.png" alt="" /><span>Profile</span></a></li>

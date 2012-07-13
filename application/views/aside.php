@@ -18,8 +18,16 @@
         <li class="charts"><a href="charts.html" title=""><span>Reports</span></a></li>
         <li class="forms"><a href="<?php echo site_url('pim/employees'); ?>" title="Personal Information Management" class="exp <?php if($module=='pim') echo 'active'; ?>" <?php if($module=='pim') echo 'id="current"'; ?>><span>PIM</span></a>
             <ul class="sub">
+                <?php if(is_admin()): ?>
+                <li <?php if($page_title == 'Employees') echo 'class="this"'; ?>>
+                    <a href="<?php echo site_url('pim/admin'); ?>" title="View Employees">View Employees</a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('pim/admin/new_employee'); ?>" title="New Employee">New Employee</a>
+                </li <?php if($form['template'] == 'personal') echo 'class="this"'; ?>>
+                <?php else: ?>
                 <li <?php if($form['template'] == 'personal') echo 'class="this"'; ?>>
-                    <a href="<?php echo site_url('pim/personal'); ?>" title="">Personal Information</a>
+                    <a href="<?php echo site_url('pim/personal'); ?>" title="<?php echo $form['title']; ?>">Personal Information</a>
                 </li>
                 <li <?php if($form['template'] == 'contact') echo 'class="this"'; ?>>
                     <a href="<?php echo site_url('pim/contact'); ?>" title="">Contacts</a>
@@ -66,6 +74,7 @@
                 <li <?php if($form['template'] == 'benefeciary') echo 'class="this"'; ?>>
                     <a href="<?php echo site_url('pim/beneficiary'); ?>" title="">Benefeciary Information</a>
                 </li>
+                <?php endif; ?>
             </ul>
         </li>
 		<li class="benefits"><a href="#" title="" class="exp"><span>Compensation & Benefits</span></a>

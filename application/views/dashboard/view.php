@@ -2,6 +2,7 @@
 /**
  *  Dashboard View 
  */
+//if(is_admin()) echo 'admin';
 ?>
 
 <!-- Right side -->

@@ -1,11 +1,11 @@
 <!-- Form -->
-        <?php echo form_open('', array('class'=>'form','id'=>'validate'), array('employee_id'=> $employee_id)); ?>
+        <?php echo form_open('', array('class'=>'form','id'=>'personal'), array('employee_id'=> $employee_id)); ?>
             <fieldset>
                 <div class="widget">
                     <div class="title"><img src="<?php echo site_url('assets/images'); ?>/icons/dark/list.png" alt="" class="titleIcon" /><h6></h6></div>
                     <div class="formRow">
                         <label>Section / Unit / Project</label>
-                        <div class="formRight"><?php echo form_input(array('name'=>'section','class'=>'validate[required]')); ?></div>
+                        <div class="formRight"><?php echo form_input(array('name'=>'section')); ?></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
@@ -37,13 +37,15 @@
                     <div class="formRow">
                         <label>Identity Card</label>
                         <div class="formRight">
-                            <?php echo form_input(array('name'=>'ic_new','placeholder'=>'New I/C')); ?>
-                        </div>
-                        <div class="formRight mt12">
-                            <?php echo form_input(array('name'=>'ic_old','placeholder'=>'Old I/C')); ?>
-                        </div>
-                        <div class="formRight mt12">
-                            <?php echo form_input(array('name'=>'ic_old','placeholder'=>'Color')); ?>
+                            <span class="oneThree">
+                                <?php echo form_input(array('name'=>'ic_new','placeholder'=>'New I/C')); ?>
+                            </span>
+                            <span class="oneThree">
+                                <?php echo form_input(array('name'=>'ic_old','placeholder'=>'Old I/C')); ?>
+                            </span>
+                            <span class="oneThree">
+                                <?php echo form_dropdown('ic_color', array(''=>'Select IC color','Blue'=>'Blue','Red'=>'Red')); ?>
+                            </span>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -78,20 +80,20 @@
                         <div class="formRight">
                             <?php echo form_radio('citizenship', 'Malaysian',FALSE,'id="citizenship_1"'); ?><?php echo form_label('Malaysian','citizenship_1'); ?>
                             <?php echo form_radio('citizenship', 'Permanent Resident',FALSE,'id="citizenship_2"'); ?><?php echo form_label('Permanent Resident','citizenship_2'); ?>
-                            <?php echo form_radio('citizenship', 'Non-Resident',FALSE,'id="citizenship_2"'); ?><?php echo form_label('Non-Resident','citizenship_3'); ?>
+                            <?php echo form_radio('citizenship', 'Non-Resident',FALSE,'id="citizenship_3"'); ?><?php echo form_label('Non-Resident','citizenship_3'); ?>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Passport</label>
                         <div class="formRight">
-                            <?php echo form_input(array('name'=>'passport[no]','placeholder'=>'Passport No')); ?>
+                            <?php echo form_input(array('name'=>'passport_no','placeholder'=>'Passport No')); ?>
                         </div>
                         <div class="formRight mt12">
-                            <?php echo form_input(array('name'=>'passport[expiry]','placeholder'=>'Passport Expiry')); ?>
+                            <?php echo form_input(array('name'=>'passport_expiry','placeholder'=>'Passport Expiry')); ?>
                         </div>
                         <div class="formRight mt12">
-                            <?php echo form_input(array('name'=>'passport[issued]','placeholder'=>'Place of Issuance')); ?>
+                            <?php echo form_input(array('name'=>'passport_issued','placeholder'=>'Place of Issuance')); ?>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -111,7 +113,7 @@
                         <div class="formRight">
                             <?php echo form_radio('marital_status', 'Single',FALSE,'id="marital_status_1"'); ?><?php echo form_label('Single','marital_status_1'); ?>
                             <?php echo form_radio('marital_status', 'Married',FALSE,'id="marital_status_2"'); ?><?php echo form_label('Married','marital_status_2'); ?>
-                            <?php echo form_radio('marital_status', 'Divorced',FALSE,'id="marital_status_2"'); ?><?php echo form_label('Divorced','marital_status_3'); ?>
+                            <?php echo form_radio('marital_status', 'Divorced',FALSE,'id="marital_status_3"'); ?><?php echo form_label('Divorced','marital_status_3'); ?>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -141,3 +143,29 @@
                <div class="clear"></div>
             </div>
         <?php echo form_close(); ?>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#personal").validate({
+            rules : {
+                'section' : 'required',
+                'department' : 'required',
+                'division' : 'required',
+                'name' : 'required',
+                'staff_id' : 'required',
+                'ic_new' : 'required',
+                'dob_day' : 'required',
+                'dob_month' : 'required',
+                'dob_year' : 'required',
+                'gender' : 'required',
+                'citizenship' : 'required',
+                'passport_no' : 'required',
+                'passport_expiry' : 'required',
+                'passport_issued' : 'required',
+                'religion' : 'required',
+                'marital_status' : 'required'
+            }
+        });
+    });
+</script>

@@ -1,5 +1,5 @@
 <!-- Form -->
-        <?php echo form_open('', array('class'=>'form'), array('employee_id'=> $employee_id)); ?>
+        <?php echo form_open('', array('class'=>'form','id'=>'contact'), array('employee_id'=> $employee_id)); ?>
             <fieldset>
                 <div class="widget">
                     <div class="title"><img src="<?php echo site_url('assets/images'); ?>/icons/dark/list.png" alt="" class="titleIcon" /><h6>Home Address</h6></div>
@@ -110,7 +110,7 @@
                                 'Sarawak' => 'Sarawak'
                             );
                         ?>
-                        <div class="formRight"><?php echo form_dropdown('address_state',$states); ?></div>
+                        <div class="formRight"><?php echo form_dropdown('emergency_state',$states); ?></div>
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
@@ -123,3 +123,25 @@
                <div class="clear"></div>
             </div>
         <?php echo form_close(); ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#contact").validate({
+            rules : {
+                'address_house_no' : 'required',
+                'address_road' : 'required',
+                'address_district' : 'required',
+                'address_postcode' : 'required',
+                'address_state' : 'required',
+                'phone_mobile' : 'required',
+                'emergency_name' : 'required',
+                'emergency_phone' : 'required',
+                'emergency_house_no' : 'required',
+                'emergency_road' : 'required',
+                'emergency_district' : 'required',
+                'emergency_postcode' : 'required',
+                'emergency_state' : 'required'
+            }
+        });
+    });
+</script>

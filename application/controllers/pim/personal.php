@@ -15,7 +15,7 @@ class Personal extends CI_Controller {
                 'title'=>'Employee Personal Information',
                 'template'=>'personal'
             );
-            
+            $this->save();
             
             $this->load->view('header',$this->data);
             $this->load->view('aside',$this->data);
@@ -24,16 +24,16 @@ class Personal extends CI_Controller {
 	}
         
         private function _validate(){
-            $rules = array(
-                array(
-                    'field' => 'section',
-                    'label' => 'Section / Unit / Project',
-                    'rules' => 'required'
-                )
-            );
+            
         }
 
         public function save(){
+            $data = array();
             
+            $inputs = (is_array($this->input->post()))? $this->input->post(): array();
+            foreach ($inputs as $field => $value ){
+                $data[$field] = $this->input->post($field);
+            }
+            //$this->pim_model->save_personal($data);
         }
 }

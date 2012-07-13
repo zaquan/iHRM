@@ -35,16 +35,7 @@ class Login extends CI_Controller {
                 $user = $this->login_model->validate_user($data);
                 
                 if( $user ){
-                    
-                    //update last login status
-                    $this->login_model->update_log($user->user_id);
-                    
-                    //$this->data['alert']['success'] = '<p>Login success</p>';
-                    //print_r($user);
-                    
-                    $this->session->set_userdata('user',$user);
-
-                    redirect('dashboard');
+                    $this->user->login($user);
                 } else {
                     $this->data['alert']['error'] = '<p>Invalid username or password</p>';
                 }
@@ -52,7 +43,6 @@ class Login extends CI_Controller {
         }
         
         public function logout(){
-            $this->session->unset_userdata('user');
-            redirect('login');
+            $this->user->logout();
         }
 }
