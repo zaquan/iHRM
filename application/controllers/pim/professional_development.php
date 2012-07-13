@@ -7,6 +7,7 @@ class Professional_development extends CI_Controller
 	public function __construct(){
 		parent::__construct();
                 
+                $this->load->library('form_validation');
                 $this->data['module'] = 'pim';
 	}
 	
@@ -14,7 +15,7 @@ class Professional_development extends CI_Controller
             
             $this->data['form'] = array(
                 'title'=>'Employee Professional Development Information',
-                'template'=>'development'
+                'template'=>'professional_development'
             );
             
             $this->load->view('header',$this->data);
