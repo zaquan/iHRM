@@ -13,7 +13,7 @@ class Occupational extends CI_Controller
 	public function index()
 	{
                 $this->data['form'] = array(
-                    'title'=>'Occupational Information',
+                    'title'=>'Employee Occupation Information',
                     'template'=>'occupational_information'
                 );
             

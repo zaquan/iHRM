@@ -10,10 +10,10 @@
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
-                        <label>Appoinment Status</label>
+                        <label>Appointment Status</label>
                         <div class="formRight">
-                            <input type="radio" checked="checked" name="appoinment_status" id="permanent" /><label for="permanent">Permanent</label>
-                            <input type="radio" name="appoinment_status" id="contract" /><label for="contract">Contract</label>
+                            <div class="floatL" style="margin: 2px 0 20px 10px;"><input type="radio" checked="checked" name="appoinment_status" id="permanent" /><label for="permanent">Permanent</label></div>
+                            <div class="floatL" style="margin: 2px 0 20px 10px;"><input type="radio" name="appoinment_status" id="contract" /><label for="contract">Contract</label></div>
                         </div>
                         <div class="clear"></div>
                         <div class="formRight">
@@ -38,25 +38,13 @@
                     </div>
                     <div class="formRow">
                         <label>Assigned Staff No.</label>
-                        <div class="formRight"><input type="text" value="" class="validate[required]"/></div>
+                        <div class="formRight"><input class="validate[required]" id="assigned_staff_no" type="text" value="" /></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Position Level</label>
                         <div class="formRight">
-                            <select name="select2" >
-                                <option value="opt1">Snr Management</option>
-                                <option value="opt2">Middle Management</option>
-                                <option value="opt2">Executive Group</option>
-                                <option value="opt2">Non-Executive Group</option>
-                            </select>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="formRow">
-                        <label>Job Grade</label>
-                        <div class="formRight">
-                            <select name="select2" >
+                            <select name="position_level" id="position_level">
                                 <option value="opt1">Chairman</option>
                                 <option value="opt2">Group Managing Director</option>
                                 <option value="opt2">Senior Vice President</option>
@@ -79,22 +67,22 @@
                     </div>
                     <div class="formRow">
                         <label>Designation</label>
-                        <div class="formRight"><input type="text" value="" class="validate[required]"/></div>
+                        <div class="formRight"><input class="validate[required]" id="designation" type="text"  value=""/></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Unit/Section/Project</label>
-                        <div class="formRight"><input type="text" value="" /></div>
+                        <div class="formRight"><input class="validate[required]" id="unit-section-project" type="text" value="" /></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Department</label>
-                        <div class="formRight"><input type="text" value="" /></div>
+                        <div class="formRight"><input class="validate[required]" id="department" type="text" value="" /></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Division</label>
-                        <div class="formRight"><input type="text" value="" /></div>
+                        <div class="formRight"><input class="validate[required]" id="division" type="text" value="" /></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
@@ -105,7 +93,7 @@
                         </div>
                         <div class="clear"></div>
                         <div class="formRight">
-                            <select name="appoinment_status_type" >
+                            <select name="appointment_status_type" id="appointment_status_type" >
                                 <option value="opt1">Kuala Lumpur</option>
                                 <option value="opt2">Labuan</option>
                                 <option value="opt2">Putrajaya</option>
@@ -128,19 +116,18 @@
                     </div>
                     <div class="formRow">
                         <label>Line of Reporting (immediate superior)</label>
-                        <div class="formRight"><input type="text" value="" /></div>
+                        <div class="formRight"><input class="validate[required]" id="line_of_reporting" type="text" value="" /></div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Responsible for (no. of Subordinate)</label>
-                        <div class="formRight"><input type="text" value="" /></div>
+                        <div class="formRight"><input class="validate[required]" id="resposible_for" type="text" value="" /></div>
                         <div class="clear"></div>
                     </div>
                 </div>
+                <div class="formSubmit"><input type="submit" value="save" class="blueB" /></div>
+                <div class="clear"></div>
                 <div id="unmask"></div>
             </fieldset>
-            <div class="widget">
-               <div class="formSubmit"><input type="reset" value="Reset" class="redB"> <input type="submit" value="submit" class="blueB"></div>
-               <div class="clear"></div>
-           </div>
+
         <?php echo form_close(); ?>
